@@ -1,6 +1,6 @@
 # macro-const-static-extern
 
-## macro 和 const 的区别
+## macro 和 const 区别
 
 ```
 // macro
@@ -17,7 +17,7 @@ NSString * const OBPassword = @"password";
 - 宏的好处：`macro` 可以定义一些函数、方法，`const` 不可以。
 - 宏的坏处：`macro` 大量使用，容易造成编译时间过久，每次都需要重新替换，而且非常难管理。
 
-## const 的作用
+## const 作用
 
 - 仅仅是用来修饰右边的变量（基本数据类型 `b`，指针类型 `*p`）。
 - `const` 修饰的变量是 readonly。
@@ -39,7 +39,7 @@ int const * const p = &a; // *p:只读 p:只读
 const int * const p = &a; // *p:只读 p:只读
 ```
 
-### const 的使用场景
+### const 使用场景
 
 - 定义一个只读的全局变量
 - 方法中定义只读参数
@@ -67,7 +67,7 @@ NSString * const string = @"hello world";
 }
 ```
 
-## static 的作用
+## static 作用
 
 `static` 修饰局部变量
 
@@ -79,9 +79,7 @@ NSString * const string = @"hello world";
 - 只会修改全局变量的作用域，表示只能是当前文件内使用。
 
 
-## extern 的作用
-
-`extern` 作用
+## extern 作用
 
 - 声明一个变量，不能定义变量。
 - 修饰的变量不能初始化，一般用于声明全局变量。
