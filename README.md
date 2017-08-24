@@ -84,4 +84,42 @@ NSString * const string = @"hello world";
 - 声明一个变量，不能定义变量。
 - 修饰的变量不能初始化，一般用于声明全局变量。
 
+## static 和 const 联合使用
+
+`static` 修饰全局变量，只改变作用域。为什么要改变全局变量作用域，防止重复声明全局变量。
+
+```
+// 声明一个静态的全局只读常量
+static const int a = 20;
+```
+
+`staic` 和 `const` 联合的作用：声明一个静态的全局只读常量。
+
+```
+// 开发中经常拿到 key 修改值，因此用 const 修饰 key，表示 key 只读，不允许修改，且只能在本文件中使用。
+static  NSString * const key = @"name";
+
+// 如果 const修饰 *key1，表示 *key1 只读，key1 还是能改变。
+static  NSString const *key1 = @"name";
+```
+
+## extern 和 const 联合使用
+
+**多个文件**经常使用同一个字符串常量，可以使用 `extern` 和 `const` 组合。
+需要多个文件共享，使用全局，不需要共享使用 `static`。
+
+- .h
+
+```
+// 对外声明全局只读变量
+extern NSString * const nameKey = @"name";
+```
+
+- .m
+
+```
+// 全局只读变量
+NSString * const nameKey = @"name";
+```
+
 
